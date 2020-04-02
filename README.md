@@ -69,6 +69,8 @@ If you change the secret, the change should be reflected after the cached value 
 
 ## run in azure
 
+This will not actually work, pending the resolution of this bug: https://github.com/Azure/Azure-Functions/issues/1533
+
 `gradle azureFunctionsDeploy`
 
 Create system assigned identity:
@@ -95,6 +97,7 @@ On Key vault, configure accesspolicy to read secrets for id of function.
 az keyvault set-policy --name "${KEYVAULT}" --object-id  "0d15ea5e-cafe-f00d-beef-defec8eddead" --secret-permissions get
 
 ````
+
 
 
 
