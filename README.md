@@ -67,6 +67,12 @@ Hello, hush-hush
 
 If you change the secret, the change should be reflected after the cached value expires.
 
+### caching
+
+In this example we use a standalone in-memory cache (https://cache2k.org) configured to do a read through (if there is a cache miss, the value is loaded into the cache and then returned). 
+
+Secrets are normally seldom changing, so to reduce the number of calls to Keyvault, the value can be cached for a short while (to the order of minutes). This means that there has to be some kind of handling for the case that the old secret is returned (and not working when used).
+
 ## run in azure
 
 This will not actually work, pending the resolution of this bug: https://github.com/Azure/Azure-Functions/issues/1533
